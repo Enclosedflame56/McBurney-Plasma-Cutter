@@ -137,35 +137,33 @@ def material_selection(stdscr):
         ],
     }
 
-    # Display the material options
-    stdscr.addstr(0, 0, "Select your material type (use arrow keys to navigate and Enter to select):\n")
+ # Display the material options
+    stdscr.addstr(0, 0, "Select your material type (enter the number corresponding to your choice and press Enter):\n")
     for idx, material in enumerate(materials):
         stdscr.addstr(idx + 1, 0, f"{idx + 1}. {material}")
     
-    # Wait for user input
-    current_option = 0
+    stdscr.refresh()
+    
+    # Capture user input
     while True:
-        # Highlight the selected option
-        for idx, material in enumerate(materials):
-            if idx == current_option:
-                stdscr.addstr(idx + 1, 0, f"> {idx + 1}. {material}", curses.A_REVERSE)
-            else:
-                stdscr.addstr(idx + 1, 0, f"  {idx + 1}. {material}")
-        
+        stdscr.addstr(len(materials) + 2, 0, "Enter the number of your selection: ")
         stdscr.refresh()
         
-        # Capture user input
         key = stdscr.getch()
         
-        if key == curses.KEY_DOWN:  # Down arrow key
-            current_option = (current_option + 1) % len(materials)
-        elif key == curses.KEY_UP:  # Up arrow key
-            current_option = (current_option - 1) % len(materials)
-        elif key == 10:  # Enter key
-            break
+        # Capture the input number
+        if key >= ord('1') and key <= ord('9'):  # Ensures input is a number between 1 and 9
+            selected_number = key - ord('1')
+            if selected_number < len(materials):
+                selected_material = materials[selected_number]
+                break
+            else:
+                stdscr.clear()
+                stdscr.addstr("Invalid input. Please select a valid material number.\n")
+                stdscr.refresh()
 
-    # Clear screen and display the selected material
-    selected_material = materials[current_option]
+
+    # Clear screen and display the selected material1
     stdscr.clear()
     stdscr.addstr(f"\nYou selected: {selected_material}\n")
     
@@ -201,7 +199,7 @@ def material_selection(stdscr):
             # Check if thickness is between 0 and 0.75
             if 0 < thickness_value <= 0.75:
                 stdscr.clear()
-                stdscr.addstr(f"\nYou selected a thickness of {thickness_value} for {selected_material}.\n")
+                stdscr.addstr(f"\nYou selected a thickness of {thickness_value} inches for {selected_material}.\n")
                 
                 # Find the speed by interpolating (in inches/min)
                 material_speeds = speed_library[selected_material]
