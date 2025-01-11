@@ -1,0 +1,85 @@
+{
+    "data": [
+        {
+            "description": "Plamsa Cutter",
+            "expressions": {
+                "tool_description": "'Plamsa Cutter'",
+                "tool_kerfWidth": ".06 in",
+                "tool_nozzleDiameter": "0.06 in"
+            },
+            "geometry": {
+                "CW": 0.06,
+                "JET_HEAD_CLEARANCE": 0.04,
+                "JET_NOZZLE_DIAMETER": 0.06
+            },
+            "guid": "9859bc35-c13f-462a-b3b3-710a38958eef",
+            "post-process": {
+                "comment": "",
+                "diameter-offset": 1,
+                "length-offset": 1,
+                "manual-tool-change": false,
+                "number": 1
+            },
+            "product-id": "",
+            "product-link": "",
+            "start-values": {
+                "presets": [
+                    {
+                        "assistGas": "Air",
+                        "cutHeight": 0.06,
+                        "cutPower": 20,
+                        "expressions": {
+                            "tool_cutHeight": ".06 in",
+                            "tool_feedCutting": "150 inpm",
+                            "tool_feedEntry": "50 inpm",
+                            "tool_pierceHeight": ".120 in"
+                        },
+                        "guid": "57e0e427-5441-4d63-b5ea-d34509e98957",
+                        "machineQualityControl": "manual",
+                        "material": {
+                            "category": "all",
+                            "query": "",
+                            "use-hardness": false
+                        },
+                        "name": "External Cut",
+                        "pierceHeight": 0.12,
+                        "piercePower": 20,
+                        "pierceTime": 0.5,
+                        "pressure": 55,
+                        "v_f": 150,
+                        "v_f_leadIn": 50,
+                        "v_f_leadOut": 150
+                    },
+                    {
+                        "assistGas": "Air",
+                        "cutHeight": 0.06,
+                        "cutPower": 40,
+                        "expressions": {
+                            "tool_cutHeight": ".06 in",
+                            "tool_pierceHeight": ".12 in"
+                        },
+                        "guid": "8d831d32-b46b-4dc0-95c7-e689b3c65f46",
+                        "machineQualityControl": "manual",
+                        "material": {
+                            "category": "all",
+                            "query": "",
+                            "use-hardness": false
+                        },
+                        "name": "Tiny Holes",
+                        "pierceHeight": 0.12,
+                        "piercePower": 40,
+                        "pierceTime": 1,
+                        "pressure": 55,
+                        "v_f": 86,
+                        "v_f_leadIn": 86,
+                        "v_f_leadOut": 86
+                    }
+                ]
+            },
+            "type": "plasma cutter",
+            "unit": "inches",
+            "vendor": "CUT60"
+        }
+    ],
+    "version": 28
+}
